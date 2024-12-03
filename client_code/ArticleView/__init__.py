@@ -12,3 +12,16 @@ class ArticleView(ArticleViewTemplate):
     self.init_components(**properties)
 
     # Any code you write here will run before the form opens.
+
+  def button_1_click(self, **event_args):
+    new_article = {}
+    
+    save_clicked = alert(
+      content= ArticleEdit(item = new_article),
+      title="Add Article",
+      large=True,
+      buttons=[("Save",True),("Cancel",False)]
+    )
+
+    if(save_clicked):
+      anvil.server.call('add_article', new_article)
