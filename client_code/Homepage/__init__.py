@@ -1,9 +1,10 @@
 from ._anvil_designer import HomepageTemplate
 from anvil import *
+import anvil.server
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-from ..ArtcileEdit import ArtcileEdit
+from ..ArticleEdit import ArticleEdit
 
 class Homepage(HomepageTemplate):
   def __init__(self, **properties):
@@ -12,16 +13,16 @@ class Homepage(HomepageTemplate):
 
     # Any code you write here will run before the form opens.
 
-  def add_artcile_btn_click(self, **event_args):
+  def add_article_btn_click(self, **event_args):
 
-    new_arcticle = {}
+    new_article = {}
     
     save_clicked = alert(
-      content= ArtcileEdit(item = new_arcticle),
+      content= ArticleEdit(item = new_article),
       title="Add Article",
       large=True,
       buttons=[("Save",True),("Cancel",False)]
     )
 
     if(save_clicked):
-      print(new_arcticle)
+      anvil.server.call('add_article', new_article)

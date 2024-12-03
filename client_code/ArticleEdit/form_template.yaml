@@ -44,7 +44,7 @@ components:
   type: Label
 - components:
   - data_bindings:
-    - {code: 'self.item[''contect'']', property: text, writeback: true}
+    - {code: 'self.item[''content'']', property: text, writeback: true}
     layout_properties: {grid_position: 'SABQWM,HSBBRO'}
     name: input_content
     properties: {height: 38}
