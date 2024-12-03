@@ -28,6 +28,18 @@ def get_article():
 
 @anvil.server.callable
 def update_article(article, article_dict):
-  if(app_tables.article.has_row(article)):
+    # Konversi LiveObjectProxy menjadi dictionary biasa
+    article_dict = dict(article_dict)
+    
+    # Perbarui kolom update_date
     article_dict['update_date'] = datetime.now()
+
+    # Perbarui baris tabel
     article.update(**article_dict)
+
+@anvil.server.callable
+def delete_article(article):
+    if app_tables.article.has_row(article):
+        article.delete()
+    else:
+        raise Exception("Article does not exist or has already been deleted")

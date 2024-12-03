@@ -13,13 +13,14 @@ components:
     properties: {align: left}
     type: Label
   - components:
-    - event_bindings: {click: button_1_click}
+    - event_bindings: {click: btn_edit_click}
       layout_properties: {grid_position: 'BBGFFL,PVUGBT'}
-      name: button_1
+      name: btn_edit
       properties: {icon: 'fa:pencil', role: elevated-button, text: ''}
       type: Button
-    - layout_properties: {grid_position: 'BBGFFL,LPOQVQ'}
-      name: button_2
+    - event_bindings: {click: btn_delete_click}
+      layout_properties: {grid_position: 'BBGFFL,LPOQVQ'}
+      name: btn_delete
       properties: {icon: 'fa:trash', role: elevated-button, text: ''}
       type: Button
     layout_properties: {grid_position: 'XODHLB,CCNCAI'}

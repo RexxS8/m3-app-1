@@ -13,6 +13,7 @@ class Homepage(HomepageTemplate):
 
     # Any code you write here will run before the form opens.
     self.refresh_articles()
+    self.repeating_panel.set_event_handler('x-delete-article', self.delete_article)
 
   def add_article_btn_click(self, **event_args):
 
@@ -31,3 +32,6 @@ class Homepage(HomepageTemplate):
       
   def refresh_articles(self):
     self.repeating_panel.items = anvil.server.call('get_article')
+
+  def delete_article(self,article, **event_args):
+    self.refresh_articles()
