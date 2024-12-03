@@ -3,7 +3,8 @@ unique_ids:
     standard-page.html: 4V65DJF2CA7U47OV4MRKUHRYJFHTWU3B
     theme.css: FEWSXVB3LIEFGXT4N4TGC7YAJHVCYWN7
   forms:
-    Form1: NR2PH3EILKBJADBYVDK432YMGENCDNZS
+    ArtcileEdit: '1733223553015725323400814.6193'
+    Homepage: NR2PH3EILKBJADBYVDK432YMGENCDNZS
   modules: {}
   scripts: {}
   server_modules: {}

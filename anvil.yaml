@@ -1,4 +1,37 @@
 allow_embedding: false
+db_schema:
+  article:
+    client: none
+    columns:
+    - admin_ui: {order: 0, width: 200}
+      name: title
+      type: string
+    - admin_ui: {order: 1, width: 200}
+      name: content
+      type: string
+    - admin_ui: {order: 2, width: 200}
+      name: image
+      type: media
+    - admin_ui: {order: 3, width: 200}
+      name: create_date
+      type: datetime
+    - admin_ui: {order: 4, width: 200}
+      name: update_date
+      type: datetime
+    - admin_ui: {order: 5, width: 200}
+      name: category
+      target: categories
+      type: link_single
+    server: full
+    title: article
+  categories:
+    client: search
+    columns:
+    - admin_ui: {order: 0, width: 200}
+      name: name
+      type: string
+    server: full
+    title: categories
 dependencies: []
 name: M3 App 1
 package_name: M3_App_1
@@ -8,5 +41,9 @@ runtime_options:
   server_spec: {base: python310-minimal}
   server_version: python3-sandbox
   version: 2
-services: []
-startup_form: Form1
+services:
+- client_config: {}
+  server_config: {}
+  source: /runtime/services/tables.yml
+startup: {module: Homepage, type: form}
+startup_form: null
