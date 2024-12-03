@@ -27,7 +27,7 @@ class Homepage(HomepageTemplate):
 
     if(save_clicked):
       anvil.server.call('add_article', new_article)
+      self.refresh_articles()
       
   def refresh_articles(self):
     self.repeating_panel.items = anvil.server.call('get_article')
-  

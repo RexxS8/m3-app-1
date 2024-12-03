@@ -25,3 +25,9 @@ def add_article(article_dic):
 @anvil.server.callable
 def get_article():
   return app_tables.article.search(tables.order_by("create_date", ascending=False))
+
+@anvil.server.callable
+def update_article(article, article_dict):
+  if(app_tables.article.has_row(article)):
+    article_dict['update_date'] = datetime.now()
+    article.update(**article_dict)
