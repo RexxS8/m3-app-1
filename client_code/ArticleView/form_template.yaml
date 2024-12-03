@@ -6,11 +6,9 @@ components:
     name: label_title
     properties: {role: title}
     type: Label
-  - data_bindings:
-    - {code: 'self.item[''category'']', property: text}
-    layout_properties: {grid_position: 'HNFUBK,PTUBOO'}
-    name: label_category
-    properties: {role: null}
+  - layout_properties: {grid_position: 'HNFUBK,KTCODE'}
+    name: label_1
+    properties: {}
     type: Label
   - components:
     - layout_properties: {grid_position: 'CTOCBU,SRFHWW'}
@@ -45,7 +43,7 @@ components:
     type: ColumnPanel
   layout_properties: {grid_position: 'XBOBLS,XVDLRR'}
   name: column_panel_6
-  properties: {col_widths: '{"NIOMPA":30,"PTUBOO":20,"BPAUQN":10}', role: elevated-card}
+  properties: {col_widths: '{"NIOMPA":30,"BPAUQN":10}', role: elevated-card}
   type: ColumnPanel
 container:
   properties: {col_widths: '{"YHRJIV":30,"AEGAWQ":15,"MTBXBW":20,"HMDHAN":40}'}
