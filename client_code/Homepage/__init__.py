@@ -12,6 +12,7 @@ class Homepage(HomepageTemplate):
     self.init_components(**properties)
 
     # Any code you write here will run before the form opens.
+    self.refresh_articles()
 
   def add_article_btn_click(self, **event_args):
 
@@ -26,3 +27,7 @@ class Homepage(HomepageTemplate):
 
     if(save_clicked):
       anvil.server.call('add_article', new_article)
+      
+  def refresh_articles(self):
+    self.repeating_panel.items = anvil.server.call('get_article')
+  

@@ -21,3 +21,7 @@ from datetime import datetime
 @anvil.server.callable
 def add_article(article_dic):
   app_tables.article.add_row(create_date= datetime.now(), **article_dic)
+
+@anvil.server.callable
+def get_article():
+  return app_tables.article.search(tables.order_by("create_date", ascending=False))

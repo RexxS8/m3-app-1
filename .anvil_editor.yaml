@@ -5,7 +5,9 @@ unique_ids:
   forms:
     ArticleEdit: '1733223553015725323400814.6193'
     ArticleView: '1733230539041358713739615.15405'
+    ArticleView.ItemTemplate1: '1733231554893563461204122.5387'
     Homepage: NR2PH3EILKBJADBYVDK432YMGENCDNZS
+    Homepage.ItemTemplate2: '1733231577746606159858187.3293'
   modules: {}
   scripts: {}
   server_modules:
