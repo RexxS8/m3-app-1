@@ -1,5 +1,6 @@
 from ._anvil_designer import HomepageTemplate
 from anvil import *
+import anvil.users
 import anvil.server
 import anvil.tables as tables
 import anvil.tables.query as q
@@ -12,8 +13,9 @@ class Homepage(HomepageTemplate):
     self.init_components(**properties)
 
     # Any code you write here will run before the form opens.
-    self.refresh_articles()
+    anvil.users.login_with_form()
     self.repeating_panel.set_event_handler('x-delete-article', self.delete_article)
+    self.refresh_articles()
 
   def add_article_btn_click(self, **event_args):
 

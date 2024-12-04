@@ -1,3 +1,4 @@
+import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
@@ -20,11 +21,14 @@ from datetime import datetime
 
 @anvil.server.callable
 def add_article(article_dic):
-  app_tables.article.add_row(create_date= datetime.now(), **article_dic)
+  app_tables.article.add_row(
+    create_date= datetime.now(),
+    creator= anvil.users.get_user(),
+    **article_dic)
 
 @anvil.server.callable
 def get_article():
-  return app_tables.article.search(tables.order_by("create_date", ascending=False))
+  return app_tables.article.search(tables.order_by("create_date", ascending=False), creator = anvil.users.get_user())
 
 @anvil.server.callable
 def update_article(article, article_dict):
@@ -39,7 +43,12 @@ def update_article(article, article_dict):
 
 @anvil.server.callable
 def delete_article(article):
-    if app_tables.article.has_row(article):
+    if app_tables.article.has_row(article):  # Cek apakah artikel ada di tabel
+        # Pastikan hanya pengguna yang membuat artikel dapat menghapusnya
+        if article['creator'] != anvil.users.get_user():
+            raise Exception("Article does not belong to this user")
+        
+        # Hapus artikel jika pengguna adalah pembuatnya
         article.delete()
     else:
         raise Exception("Article does not exist or has already been deleted")
